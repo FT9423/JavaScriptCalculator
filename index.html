@@ -1,0 +1,107 @@
+<html>
+	<head>
+		<title>JavaScript Calculator</title>
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+
+	<style>
+		body{
+			background-color:f1faee;
+			font-size:125px;
+			font-family:Papyrus,fantasy;
+			margin-left:5%;
+
+		}
+		h1{
+			font-size:125px;
+			margin-top:10%;
+		}
+		.container{
+			width: 700px;
+		}
+		.row{
+			margin-bottom:5%;
+		}
+		#output{
+			color:e63946;
+			margin-left:50%;
+			text-align:center;
+		}
+	</style>
+	</head>
+		
+		<body>
+			<div class="container">
+
+				<h1 class="animate__animated animate__pulse">Calculator</h1>
+
+				<div class="row">
+					<div class="col-sm-7">
+					<input id="FirstInput" class="form-control" placeholder="First Number">
+					</div>
+				</div>
+
+			<div class="row">
+				<div class="col-sm-7">
+					<input id="SecondInput" class="form-control" placeholder="Second Number">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-2"><button onclick="goAdd();" class="btn btn-success btn-lg">+</button></div>
+				<div class="col-sm-2"><button onclick="goSubtract();" class="btn btn-danger btn-lg">-</button></div>
+				<div class="col-sm-2"><button onclick="goMultiply();" class="btn btn-secondary btn-lg">*</button></div>
+				<div class="col-sm-2"><button onclick="goDivide();" class="btn btn-dark btn-lg">/</button></div>
+			</div>
+			<div class="row">
+				<div class="col-sm-7">
+					Result: <h1 id="output" class="FinalNumber">0</h1>
+				</div>
+			</div>
+		</div>
+
+
+
+			<script>
+				
+				function goAdd() {
+					let value = getValue();
+					let result = value[0] + value[1];
+					showResult(result);
+				}
+				function goSubtract() {
+					let value = getValue();
+					let result = value[0] - value[1];
+					showResult(result);
+				}
+				function goMultiply() {
+					let value = getValue();
+					let result = value[0] * value[1];
+					showResult(result);
+				}
+				function goDivide() {
+					let value = getValue();
+					let result = value[0] / value[1];
+					showResult(result);
+				}	
+
+				function showResult(result) {
+					document.getElementById("output").innerHTML = result;
+					emptyValue();
+				}
+
+				function getValue() {
+					let value1 = parseFloat(document.getElementById("FirstInput").value);
+					let value2 = parseFloat(document.getElementById("SecondInput").value);
+					return [value1, value2];
+				}
+
+				function emptyValue() {
+					document.getElementById("FirstInput").value = null;
+					document.getElementById("SecondInput").value = null;
+				}
+
+
+			</script>
+		</body>
+</html>
