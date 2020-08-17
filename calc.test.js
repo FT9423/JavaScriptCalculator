@@ -99,9 +99,9 @@ describe('calculator functionality', () => {
       expect(parseFloat(result.innerHTML)).toBe(3);
     })
 
-    test('result is not NaN', () => {
+    test('result is a number', () => {
       let result = container.querySelector("#output");
-      expect(parseFloat(result.innerHTML)).not.toBe(NaN);
+      expect(parseFloat(result.innerHTML)).not.toBeNaN();
     })
 
   })
